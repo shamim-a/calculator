@@ -7,31 +7,31 @@ let currentInput = '';
 
 function displayValue(value) {
     currentInput = currentInput + value;
-    history.innerText = currentInput;
     display.value = currentInput;
-
 }
-
+// clear function
 function clearDisplay() {
     currentInput = '';
     display.value = '';
     history.innerText = "";
 }
-
+// calculation
 function calculateResult() {
+    history.innerText = currentInput + " =";
     try {
         currentInput = eval(currentInput);
-        display.value = currentInput;
+        display.value = "Ans. "+ currentInput;
     } catch (error) {
         display.value = 'Error';
     }
 }
-
+// percentage calculation
 function calculatePercentage() {
+    history.innerText = currentInput + "% =";
     try {
         currentInput = eval(currentInput);
         currentInput = currentInput / 100;
-        display.value = currentInput;
+        display.value = "Ans. "+ currentInput;
     } catch (error) {
         display.value = 'Error';
     }
@@ -40,4 +40,5 @@ function calculatePercentage() {
 function backspace() {
     currentInput = currentInput.slice(0, -1);
     display.value = currentInput;
+    // history.innerHTML = currentInput;
 }
